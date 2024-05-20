@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Tablr",
+  "version": "0.0.1",
+  "description": "Tablr is a chrome extension that allows you to copy tables to JSON or markdown.",
+  "author": "Henry Fritz [github.com/henryamster]",
+  "permissions": ["contextMenus", "clipboardWrite"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/content.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "128": "images/icon128.png"
+  }
+}
